@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Unity Setup Fields")]
     public Transform groundCheck;
     public LayerMask whatIsGround;
+    public Animator animator;
 
     private float movementInputDirection;
     private float groundCheckRadius = 0.1f;
@@ -17,12 +18,10 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     private Rigidbody2D rb;
-    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -39,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (isGrounded)
             {
@@ -59,16 +58,17 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("moveSpeed", Mathf.Abs(movementInputDirection));
         animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("yVelocity", rb.velocity.y);
     }
     private void Flip()
     {
         if (movementInputDirection > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else if (movementInputDirection < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
     private void CheckGround()
