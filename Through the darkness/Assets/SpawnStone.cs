@@ -13,11 +13,4 @@ public class SpawnStone : MonoBehaviour
             glow.SetActive(true);
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            glow.SetActive(false);
-        }
-    }
 }
