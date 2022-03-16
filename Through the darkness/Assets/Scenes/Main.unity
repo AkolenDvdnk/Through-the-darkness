@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420856611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe88215956d6a34b8404008863502a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6c90e09e23c0041a61f2cddb263139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1420856614}
@@ -4901,7 +4901,6 @@ GameObject:
   - component: {fileID: 1737118706}
   - component: {fileID: 1737118705}
   - component: {fileID: 1737118707}
-  - component: {fileID: 1737118708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4977,20 +4976,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  maxMana: 5
   currentHealth: 0
+  currentMana: 0
   healthBar: {fileID: 125348701}
---- !u!114 &1737118708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737118703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab2a6399a796fc4ca14e8122a3b692b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  manaBar: {fileID: 1420856613}
 --- !u!1 &1745093074
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,7 +4994,7 @@ GameObject:
   - component: {fileID: 1745093076}
   - component: {fileID: 1745093075}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
