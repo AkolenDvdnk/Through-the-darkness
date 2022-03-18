@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnStone : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     [SerializeField] GameObject glow;
 
@@ -10,7 +10,15 @@ public class SpawnStone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            CheckpointController.instance.DeactivateCheckpoints(); 
+
             glow.SetActive(true);
+
+            CheckpointController.instance.SetSpawnPoint(transform.position);
         }
+    }
+    public void ResetCheckpoint()
+    {
+        glow.SetActive(false);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4324189654557796922}
   - component: {fileID: 122637982815421867}
   m_Layer: 0
-  m_Name: SpawnStone
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
