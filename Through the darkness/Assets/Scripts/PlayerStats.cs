@@ -2,6 +2,8 @@
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
+
     public int maxHealth = 5;
     public int maxMana = 5;
     [HideInInspector] public int currentHealth;
@@ -10,6 +12,10 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
     public ManaBar manaBar;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         currentHealth = maxHealth;
@@ -20,10 +26,10 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
+        if (currentHealth <= 0)
+            Death();
         if (Input.GetKeyDown(KeyCode.O))
         {
-            if (currentHealth <= 0)
-                return;
 
             TakeDamage(1);
             Debug.Log(currentHealth);
@@ -49,5 +55,9 @@ public class PlayerStats : MonoBehaviour
         currentMana -= manaCost;
 
         manaBar.SetMana(currentMana);
+    }
+    private void Death()
+    {
+        LevelManager.instance.RespawnPlayer();
     }
 }

@@ -8,13 +8,17 @@ public class CheckpointController : MonoBehaviour
 
     private Checkpoint[] checkpoints;
 
-    private Vector3 spawnPoint;
+    [HideInInspector] public Vector3 spawnPoint;
 
     private void Awake()
     {
         instance = this;
 
         checkpoints = FindObjectsOfType<Checkpoint>();
+    }
+    private void Start()
+    {
+        spawnPoint = PlayerController.instance.transform.position;
     }
     public void DeactivateCheckpoints()
     {
