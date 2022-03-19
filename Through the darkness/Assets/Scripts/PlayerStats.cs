@@ -26,11 +26,14 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
         if (currentHealth <= 0)
             Death();
+
         if (Input.GetKeyDown(KeyCode.O))
         {
-
             TakeDamage(1);
             Debug.Log(currentHealth);
         }
