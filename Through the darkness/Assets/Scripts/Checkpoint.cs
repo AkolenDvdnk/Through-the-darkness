@@ -6,19 +6,26 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] GameObject glow;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();   
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            CheckpointController.instance.DeactivateCheckpoints(); 
+            CheckpointController.instance.DeactivateCheckpoints();
 
-            glow.SetActive(true);
+            animator.SetBool("isActivated", true);
 
             CheckpointController.instance.SetSpawnPoint(transform.position);
         }
     }
     public void ResetCheckpoint()
     {
-        glow.SetActive(false);
+        //glow.SetActive(false);
+        animator.SetBool("isActivated", false);
     }
 }
