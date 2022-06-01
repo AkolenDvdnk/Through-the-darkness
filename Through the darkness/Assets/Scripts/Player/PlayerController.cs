@@ -6,18 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
-    public float moveSpeed;
-    public float jumpForce;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float jumpForce;
+    [SerializeField] float jumpTimerSet;
 
     [Header("Unity Setup Fields")]
-    public Transform groundCheck;
-    public LayerMask whatIsGround;
-    public Animator animator;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask whatIsGround;
+    [SerializeField] Animator animator;
 
     private float movementInputDirection;
     private float groundCheckRadius = 0.1f;
+    private float jumpTimer;
 
     private bool isGrounded;
+    private bool isAttemptingToJump;
 
     private Rigidbody2D rb;
 
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        CheckJump();
         UpdateAnimation();
         Flip();
     }
@@ -48,11 +52,27 @@ public class PlayerController : MonoBehaviour
             {
                 Jump();
             }
+            else
+            {
+                jumpTimer = jumpTimerSet;
+                isAttemptingToJump = true;
+            }
         }
     }
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+    private void CheckJump()
+    {
+        if (jumpTimer > 0 && isGrounded)
+        {
+            Jump();
+        }
+        if (isAttemptingToJump)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
     }
     private void ApplyMovement()
     {
