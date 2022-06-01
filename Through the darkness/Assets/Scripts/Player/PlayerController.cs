@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpTimerSet;
+    [SerializeField] float dashForce;
 
     [Header("Unity Setup Fields")]
     [SerializeField] Transform groundCheck;
@@ -58,6 +59,15 @@ public class PlayerController : MonoBehaviour
                 isAttemptingToJump = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Dash();
+        }
+    }
+    private void Dash()
+    {
+        animator.SetTrigger("dash");
+        rb.AddForce(Vector2.right * dashForce, ForceMode2D.Force);
     }
     private void Jump()
     {
