@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerComponents
 {
-    public static PlayerController instance;
-
+    [Header("Variables")]
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpTimerSet;
-    [SerializeField] float dashForce;
 
     [Header("Unity Setup Fields")]
-    [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask whatIsGround;
-    [SerializeField] Animator animator;
+    [SerializeField] protected Transform groundCheck;
+    [SerializeField] protected LayerMask whatIsGround;
 
     private float movementInputDirection;
     private float groundCheckRadius = 0.1f;
@@ -23,28 +20,16 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isAttemptingToJump;
 
-    private Rigidbody2D rb;
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
 
-    private void Awake()
-    {
-        instance = this;
-
-        rb = GetComponent<Rigidbody2D>();
-    }
-    private void Update()
-    {
-        CheckInput();
-        CheckJump();
-        UpdateAnimation();
-        Flip();
-    }
-    private void FixedUpdate()
-    {
-        ApplyMovement();
         CheckGround();
     }
-    private void CheckInput()
+    protected override void CheckInput()
     {
+        base.CheckInput();
+
         movementInputDirection = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -59,14 +44,18 @@ public class PlayerController : MonoBehaviour
                 isAttemptingToJump = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Dash();
-        }
     }
-    private void Dash()
+    protected override void CheckAbility()
     {
-        animator.SetTrigger("dash");
+        base.CheckAbility();
+
+        CheckJump();
+        ApplyMovement();
+        Flip();
+    }
+    private void ApplyMovement()
+    {
+        rb.velocity = new Vector2(moveSpeed * movementInputDirection, rb.velocity.y);
     }
     private void Jump()
     {
@@ -83,16 +72,6 @@ public class PlayerController : MonoBehaviour
             jumpTimer -= Time.deltaTime;
         }
     }
-    private void ApplyMovement()
-    {
-        rb.velocity = new Vector2(moveSpeed * movementInputDirection, rb.velocity.y);
-    }
-    private void UpdateAnimation()
-    {
-        animator.SetFloat("moveSpeed", Mathf.Abs(movementInputDirection));
-        animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("yVelocity", rb.velocity.y);
-    }
     private void Flip()
     {
         if (movementInputDirection > 0)
@@ -104,12 +83,16 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+    protected override void UpdateAnimation()
+    {
+        base.UpdateAnimation();
+
+        animator.SetFloat("moveSpeed", Mathf.Abs(movementInputDirection));
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("yVelocity", rb.velocity.y);
+    }
     private void CheckGround()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }

@@ -5152,6 +5152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737118704}
   - component: {fileID: 1737118706}
+  - component: {fileID: 1737118708}
   - component: {fileID: 1737118705}
   - component: {fileID: 1737118707}
   m_Layer: 0
@@ -5185,18 +5186,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737118703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4785bcdb387c9b048b4aa58f329199a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 466e8988751cf0847a2bd88d93087dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 8
   jumpForce: 13
   jumpTimerSet: 0.2
-  dashForce: 20
   groundCheck: {fileID: 246734237}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 861792613}
 --- !u!50 &1737118706
 Rigidbody2D:
   serializedVersion: 4
@@ -5236,6 +5235,18 @@ MonoBehaviour:
   currentMana: 0
   healthBar: {fileID: 125348701}
   manaBar: {fileID: 1420856613}
+--- !u!114 &1737118708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737118703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f7f7f3fa5d6c44bb460e57cf616258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745093074
 GameObject:
   m_ObjectHideFlags: 0
