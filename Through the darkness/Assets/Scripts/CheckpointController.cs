@@ -18,7 +18,7 @@ public class CheckpointController : MonoBehaviour
     }
     private void Start()
     {
-        spawnPoint = PlayerComponents.instance.transform.position;
+        spawnPoint = PlayerController.instance.transform.position;
     }
     public void DeactivateCheckpoints()
     {

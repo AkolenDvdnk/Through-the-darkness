@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerComponents : MonoBehaviour
 {
-    public static PlayerComponents instance;
-
     protected Animator animator;
     protected Rigidbody2D rb;
 
     protected virtual void Awake()
     {
-        instance = this;
-
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
     }
@@ -25,7 +21,6 @@ public class PlayerComponents : MonoBehaviour
     protected virtual void CheckAbility() 
     {
         CheckInput();
-        UpdateAnimation();
     }
     protected virtual void CheckInput() { }
     protected virtual void UpdateAnimation() { }
