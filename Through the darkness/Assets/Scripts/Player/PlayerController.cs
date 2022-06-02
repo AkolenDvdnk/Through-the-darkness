@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         animator.SetTrigger("dash");
-        rb.AddForce(Vector2.right * dashForce, ForceMode2D.Force);
     }
     private void Jump()
     {

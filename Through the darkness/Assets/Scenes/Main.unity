@@ -5191,7 +5191,7 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 13
   jumpTimerSet: 0.2
-  dashForce: 0
+  dashForce: 20
   groundCheck: {fileID: 246734237}
   whatIsGround:
     serializedVersion: 2
