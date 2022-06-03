@@ -14,14 +14,10 @@ public class PlayerComponents : MonoBehaviour
     }
     protected virtual void Update()
     {
+        CheckInput();
         CheckAbility();
-        UpdateAnimation();
     }
     protected virtual void FixedUpdate() { }
-    protected virtual void CheckAbility() 
-    {
-        CheckInput();
-    }
+    protected virtual void CheckAbility() { }
     protected virtual void CheckInput() { }
-    protected virtual void UpdateAnimation() { }
 }

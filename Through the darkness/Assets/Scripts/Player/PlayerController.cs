@@ -61,10 +61,9 @@ public class PlayerController : PlayerComponents
     }
     protected override void CheckAbility()
     {
-        base.CheckAbility();
-
         CheckJump();
         Flip();
+        UpdateAnimation();
     }
     private void ApplyMovement()
     {
@@ -111,7 +110,7 @@ public class PlayerController : PlayerComponents
             isFacingRight = false;
         }
     }
-    protected override void UpdateAnimation()
+    private void UpdateAnimation()
     {
         animator.SetFloat("moveSpeed", Mathf.Abs(movementInputDirection));
         animator.SetBool("isGrounded", isGrounded);
