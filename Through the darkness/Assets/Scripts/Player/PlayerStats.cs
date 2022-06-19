@@ -9,8 +9,8 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector] public int currentHealth;
     [HideInInspector] public int currentMana;
 
-    public HealthBar healthBar;
-    public ManaBar manaBar;
+    [SerializeField] HealthBar healthBar;
+    [SerializeField] ManaBar manaBar;
 
     private void Awake()
     {

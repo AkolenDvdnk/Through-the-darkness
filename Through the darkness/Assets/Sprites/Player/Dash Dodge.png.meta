@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: ca12cadcbebea0d4e894936d5e0b61aa
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3699084029347608103
+    second: Dash Dodge_0
+  - first:
+      213: -5501188938580619386
+    second: Dash Dodge_1
+  - first:
+      213: 5521738504651424175
+    second: Dash Dodge_2
+  - first:
+      213: 8083427665980036005
+    second: Dash Dodge_3
+  - first:
+      213: -2682147945671512823
+    second: Dash Dodge_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +100,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Dash Dodge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726b59b7359c55330800000000000000
+      internalID: 3699084029347608103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash Dodge_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f08919ec9d7a3b0800000000000000
+      internalID: -5501188938580619386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash Dodge_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa148502ae721ac40800000000000000
+      internalID: 5521738504651424175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash Dodge_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a31e4662aa1e2070800000000000000
+      internalID: 8083427665980036005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash Dodge_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90da43f67a817cad0800000000000000
+      internalID: -2682147945671512823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

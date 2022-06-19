@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    [SerializeField] GameObject glow;
-
     private Animator animator;
 
     private void Awake()
@@ -25,7 +23,6 @@ public class Checkpoint : MonoBehaviour
     }
     public void ResetCheckpoint()
     {
-        //glow.SetActive(false);
         animator.SetBool("isActivated", false);
     }
 }
